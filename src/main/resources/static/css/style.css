@@ -1,0 +1,240 @@
+/* Загальні стилі */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Темний фон */
+  margin: 0;
+  padding: 0;
+  color: #e0e0e0; /* Світлий текст */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #1e1e1e; /* Трохи світліший фон */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    color: #00bcd4; /* Бірюзовий акцент */
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.user-info {
+    font-weight: bold;
+    color: #00bcd4; /* Бірюзовий колір для імені користувача */
+    font-size: 1.5rem; /* Збільшення шрифта */
+    font-family: 'Roboto', sans-serif; /* Встановлюємо шрифт Roboto */
+    letter-spacing: 1px; /* Трохи розширюємо міжбуквений інтервал */
+    text-shadow: 0 2px 5px rgba(0, 188, 212, 0.3); /* Легкий тіньовий ефект */
+}
+
+/* Стилі форм */
+.form-container {
+    background-color: #212121; /* Темний блок */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-container label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #b0bec5; /* Світлий сірий */
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #37474f; /* Темно-сірий бордер */
+    border-radius: 6px;
+    background-color: #263238; /* Глибокий темний */
+    color: #e0e0e0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #00bcd4; /* Бірюзовий */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-container button:hover {
+    background-color: #008ba3; /* Трохи темніший */
+    transform: scale(1.05); /* Збільшення */
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Стилі таблиць */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1e1e1e; /* Темний фон таблиці */
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #37474f;
+}
+
+table th {
+    background-color: #263238; /* Темно-сірий */
+    color: #00bcd4; /* Бірюзовий */
+}
+
+table tr:nth-child(even) {
+    background-color: #212121; /* Чіткіший поділ рядків */
+}
+
+table tr:hover {
+    background-color: #37474f; /* Виділення рядка */
+}
+
+/* Стилі для кнопок */
+.button {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #008ba3;
+    transform: scale(1.05);
+}
+
+/* Окремі стилі для кнопок редагування та видалення */
+.button.edit {
+    width: 70px;
+    margin: 3px;
+    background-color: #29b6f6; /* Блакитний */
+}
+
+.button.delete {
+    width: 70px;
+    margin: 3px;
+    background-color: #e53935; /* Червоний */
+}
+
+.button.delete:hover {
+    background-color: #d32f2f;
+}
+/* Стиль для кнопки Logout */
+.button.logout {
+    background-color: #e53935; /* Червоний */
+    color: #ffffff;
+}
+
+.button.logout:hover {
+    background-color: #d32f2f; /* Темніший червоний */
+}
+.button.back {
+    margin-top: 25px;
+}
+
+/* Стиль для групи кнопок */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Вертикальне вирівнювання */
+    gap: 15px; /* Відступ між кнопками */
+    justify-content: center; /* Центрування кнопок по вертикалі */
+    margin-top: 20px; /* Відступ зверху */
+}
+/* Спеціальні стилі для кнопок на головній сторінці */
+.container .navigation .button {
+    color: #ffffff !important; /* Білий текст */
+    background-color: #00bcd4; /* Бірюзовий фон */
+    border: 2px solid #00bcd4; /* Гарантуємо відповідність фону */
+}
+
+.container .navigation .button:hover {
+    background-color: #008ba3; /* Темніший бірюзовий при наведенні */
+    color: #ffffff !important; /* Білий текст залишається */
+}
+
+/* Стилі навігації */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.navigation a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+/* Аватар */
+.avatar {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 50%;
+    border: 4px solid #00bcd4;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+/* Повідомлення про помилки */
+.error {
+    color: #f44336; /* Червоний */
+    font-size: 0.9rem;
+}
+
+/* Адаптивність */
+@media (max-width: 600px) {
+    .container, .form-container {
+        padding: 15px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    .button {
+        padding: 8px 20px;
+    }
+}

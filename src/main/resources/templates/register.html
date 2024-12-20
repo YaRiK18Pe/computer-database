@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form th:action="@{/register}" method="post" class="form-container">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" 
+                    pattern="^(?!.*[._\-@+]{2})[A-Za-z0-9._\-@+]{3,20}$"
+                    title="Username must be 3-20 characters long, and may include letters, numbers, special symbols (._-@+). Consecutive special characters are not allowed."
+                    minlength="3" maxlength="20"
+                    required />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" 
+                    pattern="[A-Za-z\d@$!%*?&]{4,20}" 
+                    title="Password must be 4-20 characters long and may include letters, numbers, and special characters (@$!%*?&)" 
+                    maxlength="20" 
+                    required />
+            </div>
+            <div>
+                <label for="role">Role</label>
+                <select id="role" name="role">
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="button">Register</button>
+                <a th:href="@{/home}" class="button">Continue without registering</a>
+            </div>
+        </form>
+        <div class="links">
+            <a th:href="@{/login}">Already have an account? Login here</a>
+        </div>
+    </div>
+</body>
+</html>

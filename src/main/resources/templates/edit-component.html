@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Component</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Component</h1>
+
+        <form th:action="@{/components/update/{id}(id=${component.componentId})}" th:object="${component}" method="post" class="form-container">
+            <input type="hidden" th:field="*{componentId}" />
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" required />
+            <div th:if="${#fields.hasErrors('name')}" class="error-message">
+                <p th:errors="*{name}">Name error</p>
+            </div>
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" th:field="*{type}" required />
+            <div th:if="${#fields.hasErrors('type')}" class="error-message">
+                <p th:errors="*{type}">Type error</p>
+            </div>
+
+            <label for="cost">Cost:</label>
+            <input type="number" step="0.01" id="cost" th:field="*{cost}" required />
+            <div th:if="${#fields.hasErrors('cost')}" class="error-message">
+                <p th:errors="*{cost}">Cost error</p>
+            </div>
+
+            <label for="description">Description:</label>
+            <textarea id="description" th:field="*{description}" required></textarea>
+            <div th:if="${#fields.hasErrors('description')}" class="error-message">
+                <p th:errors="*{description}">Description error</p>
+            </div>
+
+            <button type="submit" class="button">Update</button>
+        </form>
+        <a href="/components" class="button back">Back to Components</a>
+    </div>
+</body>
+</html>

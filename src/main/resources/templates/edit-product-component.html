@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Product Component</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Product Component</h1>
+
+        <form th:action="@{/productcomponents/update}" method="post" class="form-container" th:object="${productComponent}">
+            <input type="hidden" th:field="*{productComponentId}" />
+
+            <label for="product">Product:</label>
+            <select id="product" name="product.productId" th:field="*{product.productId}">
+                <option th:each="product : ${products}" 
+                        th:value="${product.productId}" 
+                        th:selected="${product.productId == productComponent.product.productId}"
+                        th:text="${product.name}"></option>
+            </select>
+
+            <label for="component">Component:</label>
+            <select id="component" name="component.componentId" th:field="*{component.componentId}">
+                <option th:each="component : ${components}" 
+                        th:value="${component.componentId}" 
+                        th:selected="${component.componentId == productComponent.component.componentId}"
+                        th:text="${component.name}"></option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" th:field="*{quantity}" required>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <a href="/productcomponents" class="button back">Back to List</a>
+    </div>
+</body>
+</html>

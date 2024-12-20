@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Components</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Product Components</h1>
+        <a href="/productcomponents/add" class="button">Add Product Component</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Component</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="productComponent : ${productComponents}">
+                    <td th:text="${productComponent.productComponentId}"></td>
+                    <td th:text="${productComponent.product.name + ' (ID: ' + productComponent.product.productId + ')'}"></td>
+                    <td th:text="${productComponent.component.name + ' (ID: ' + productComponent.component.componentId + ')'}"></td>
+                    <td th:text="${productComponent.quantity}"></td>
+                    <td>
+                        <a th:href="@{/productcomponents/edit/{id}(id=${productComponent.productComponentId})}" class="button edit">Edit</a>
+                        <a th:href="@{/productcomponents/delete/{id}(id=${productComponent.productComponentId})}" class="button delete">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/home" class="button back">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Product Component</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Add Product Component</h1>
+        <form action="#" th:action="@{/productcomponents/add}" th:object="${productComponent}" method="post" class="form-container">
+            <label for="product">Product:</label>
+            <select th:field="*{product.productId}">
+                <option th:each="product : ${products}" th:value="${product.productId}" th:text="${product.name}"></option>
+            </select>
+            
+            <label for="component">Component:</label>
+            <select th:field="*{component.componentId}">
+                <option th:each="component : ${components}" th:value="${component.componentId}" th:text="${component.name}"></option>
+            </select>
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" th:field="*{quantity}" min="1" required="required" />
+            
+            <button type="submit" class="button">Save</button>
+        </form>
+        <a href="/productcomponents" class="button">Back to List</a>
+    </div>
+</body>
+</html>

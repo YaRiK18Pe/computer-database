@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Computer</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <a href="https://github.com/YaRiK18Pe" target="_blank"> 
+            <img src="https://st.depositphotos.com/1005404/4661/i/450/depositphotos_46614835-stock-photo-modern-pc.jpg" alt="Недоступно" class="avatar">
+        </a>
+        
+        <h1>Database "Computer"</h1>
+        <h2>Database in a web application using Java</h2>
+        <h3>Easily manage your "Computer" database with this web application.</h3>
+        
+        <div class="navigation">
+            <a th:href="@{/products}" class="button">Products</a>
+            <a th:href="@{/components}" class="button">Components</a>
+            <a th:href="@{/productcomponents}" class="button">Orders</a>
+        </div>
+
+        <!-- Header with user greeting -->
+        <div class="header">
+            <!-- Show user info if authenticated -->
+            <div th:if="${username}" class="user-info">
+                <p>Welcome, <span th:text="${username}"></span></p>
+                <!-- Logout form visible when logged in -->
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="button logout">Logout</button>
+                </form>
+            </div>
+
+            <!-- Show login link if user is not authenticated -->
+            <div th:unless="${username}" class="login-link">
+                <a th:href="@{/login}" class="button">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

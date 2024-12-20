@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Components List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Components List</h1>
+        <a href="/components/add" class="button">Add New Component</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Cost</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="component : ${components}">
+                    <td th:text="${component.componentId}"></td>
+                    <td th:text="${component.name}"></td>
+                    <td th:text="${component.type}"></td>
+                    <td th:text="${component.cost}"></td>
+                    <td th:text="${component.description}"></td>
+                    <td>
+                        <a th:href="@{/components/edit/{id}(id=${component.componentId})}" class="button edit">Edit</a>
+                        <a th:href="@{/components/delete/{id}(id=${component.componentId})}" class="button delete">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/home" class="button back">Back to Home</a>
+    </div>
+</body>
+</html>

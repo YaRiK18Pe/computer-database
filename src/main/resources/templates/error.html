@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error 404 - Unauthorized</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <!-- Шапка -->
+        <div class="header" style="margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">
+            <h1 style="color: #d9534f; font-size: 2rem;">Error 404</h1>
+        </div>
+
+        <!-- Повідомлення про помилку -->
+        <h2 style="color: #555; font-size: 1.5rem; margin-bottom: 20px;">
+            You are not authorized to access this page.
+        </h2>
+        <p style="color: #777; font-size: 1rem; margin-bottom: 30px;">
+            Please log in to gain access or return to the homepage.
+        </p>
+
+        <!-- Навігація -->
+        <div class="navigation">
+            <a th:href="@{/login}" class="button" style="margin-right: 10px;">Login</a>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Component</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Add Component</h1>
+        <form th:action="@{/components/add}" th:object="${component}" method="post" class="form-container">
+            <!-- Відображення помилок для поля name -->
+            <div th:if="${#fields.hasErrors('name')}" class="error">
+                <span th:errors="*{name}">Name Error</span>
+            </div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" required />
+
+            <!-- Відображення помилок для поля type -->
+            <div th:if="${#fields.hasErrors('type')}" class="error">
+                <span th:errors="*{type}">Type Error</span>
+            </div>
+            <label for="type">Type:</label>
+            <input type="text" id="type" th:field="*{type}" required />
+
+            <!-- Відображення помилок для поля cost -->
+            <div th:if="${#fields.hasErrors('cost')}" class="error">
+                <span th:errors="*{cost}">Cost Error</span>
+            </div>
+            <label for="cost">Cost:</label>
+            <input type="number" step="0.01" id="cost" th:field="*{cost}" required />
+
+            <!-- Відображення помилок для поля description -->
+            <div th:if="${#fields.hasErrors('description')}" class="error">
+                <span th:errors="*{description}">Description Error</span>
+            </div>
+            <label for="description">Description:</label>
+            <textarea id="description" th:field="*{description}" required></textarea>
+
+            <button type="submit" class="button">Save</button>
+        </form>
+        <a href="/components" class="button back">Back to Components</a>
+    </div>
+</body>
+</html>
